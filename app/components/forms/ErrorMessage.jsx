@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import AppText from "../AppText";
+import Text from "../Text";
 import colors from "../../config/colors";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ const ErrorMessage = ({ error, visible, style }) => {
     <>
       {visible && (
         <View style={[styles.container, style]}>
-          {show && <AppText style={styles.error}>{error}</AppText>}
+          {show && <Text style={styles.error}>{error}</Text>}
           <TouchableWithoutFeedback onPress={() => setShow(!show)}>
             <AntDesign
               name="exclamationcircle"
