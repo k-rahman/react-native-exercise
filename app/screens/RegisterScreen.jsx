@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as Yup from "yup";
 
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { Form, FormField, SubmitButton } from "../components/forms";
 import ActivityIndicator from "../components/ActivityIndicator";
 import register from "../api/register";
 import useApi from "../hooks/useApi";
@@ -40,7 +40,7 @@ const RegisterScreen = ({ navigation }) => {
       <View style={styles.logoContainer}>
         <Image source={require("../assets/logo.png")} />
       </View>
-      <AppForm
+      <Form
         initialValues={{
           firstname: "",
           lastname: "",
@@ -52,14 +52,14 @@ const RegisterScreen = ({ navigation }) => {
         validationSchema={validationSchema}
         navigation={navigation}
       >
-        <AppFormField
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="account"
           name="firstname"
           placeholder="FirstName"
         />
-        <AppFormField
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="account"
@@ -70,7 +70,7 @@ const RegisterScreen = ({ navigation }) => {
             borderBottomWidth: 0,
           }}
         />
-        <AppFormField
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="email"
@@ -79,7 +79,7 @@ const RegisterScreen = ({ navigation }) => {
           placeholder="Email"
           textContentType="emailAddress"
         />
-        <AppFormField
+        <FormField
           icon="phone"
           name="phone"
           placeholder="Phone Number"
@@ -89,7 +89,7 @@ const RegisterScreen = ({ navigation }) => {
             borderBottomWidth: 0,
           }}
         />
-        <AppFormField
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="lock"
@@ -102,7 +102,7 @@ const RegisterScreen = ({ navigation }) => {
           }}
         />
         <SubmitButton title="Register" />
-      </AppForm>
+      </Form>
     </KeyboardAwareScrollView>
   );
 };

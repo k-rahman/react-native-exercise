@@ -5,22 +5,22 @@ import * as Yup from "yup";
 import jwtDecode from "jwt-decode";
 
 import {
-  AppForm,
-  AppFormField,
+  Form,
+  FormField,
   ErrorMessage,
   SubmitButton,
 } from "../components/forms";
 import AuthContext from "../auth/context";
 import authApi from "../api/auth";
 import authStorage from "../auth/storage";
-import AppText from "../components/AppText";
-import useApi from "../hooks/useApi";
+import Text from "../components/Text";
 import ActivityIndicator from "../components/ActivityIndicator";
 import colors from "../config/colors";
+import useApi from "../hooks/useApi";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(5).label("Password"),
+  password: Yup.string().required().label("Password"),
 });
 
 const LoginScreen = ({ navigation, route }) => {
@@ -36,6 +36,10 @@ const LoginScreen = ({ navigation, route }) => {
     setLoginFailed("");
     setUser(jwtDecode(data.token));
     authStorage.storeToken(data.token);
+
+    if (route.params?.screenName) {
+      navigation.navigate(route.params.screenName);
+    }
   };
 
   return (
@@ -44,14 +48,18 @@ const LoginScreen = ({ navigation, route }) => {
       <View style={styles.logoContainer}>
         <Image source={require("../assets/logo.png")} />
       </View>
-      <AppForm
+      <Form
         initialValues={{ email: "", password: "" }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
         navigation={navigation}
       >
-        <ErrorMessage error={loginFailed} />
-        <AppFormField
+        <ErrorMessage
+          error={loginFailed}
+          visible={loginFailed}
+          style={{ position: "relative", alignSelf: "flex-end" }}
+        />
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="email"
@@ -60,7 +68,7 @@ const LoginScreen = ({ navigation, route }) => {
           placeholder="Email"
           textContentType="emailAddress" // ios
         />
-        <AppFormField
+        <FormField
           autoCapittalize="none"
           autoCorrect={false}
           icon="lock"
@@ -71,12 +79,12 @@ const LoginScreen = ({ navigation, route }) => {
           style={{ borderBottomWidth: 0 }}
         />
         <SubmitButton title="Login" />
-      </AppForm>
+      </Form>
       <TouchableOpacity
         onPress={() => navigation.navigate("Register")}
         activeOpacity={0.5}
       >
-        <AppText style={styles.createAccount}>Create Account?</AppText>
+        <Text style={styles.createAccount}>Create Account?</Text>
       </TouchableOpacity>
     </KeyboardAwareScrollView>
   );
