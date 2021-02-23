@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import colors from "../config/colors";
 
-import AppText from "./AppText";
+import Text from "./Text";
 
 const storageServer = "https://abdelrahman.ddns.net/";
 
@@ -16,10 +16,10 @@ const Card = ({ title, subTitle, date, image, onPress }) => {
           source={{ uri: `${storageServer}${image}` }}
         />
         <View style={styles.detailsContainer}>
-          <AppText style={styles.title}>{title}</AppText>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.subContainer}>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
-            <AppText style={styles.date}>{date}</AppText>
+            <Text style={styles.subTitle}>{subTitle}</Text>
+            <Text style={styles.date}>{date}</Text>
           </View>
         </View>
       </View>
