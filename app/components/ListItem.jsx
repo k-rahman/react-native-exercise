@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 
-import AppText from "./AppText";
+import Text from "./Text";
 import colors from "../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
@@ -27,8 +27,8 @@ const ListItem = ({
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText style={[styles.title, { ...textAlign }]}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+            <Text style={[styles.title, { ...textAlign }]}>{title}</Text>
+            {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
           </View>
         </View>
       </TouchableHighlight>
