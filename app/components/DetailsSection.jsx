@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import AppText from "./AppText";
+import Text from "./Text";
 import colors from "../config/colors";
 
 const DetailsSection = ({ Component, label, value, addStyles }) => {
@@ -12,11 +12,9 @@ const DetailsSection = ({ Component, label, value, addStyles }) => {
 
   return (
     <View style={[styles.container, { ...addStyles }]}>
-      <AppText style={styles.label}>{label}</AppText>
+      <Text style={styles.label}>{label}</Text>
       {Component}
-      {value && (
-        <AppText style={[styles.value, { ...longText }]}>{value}</AppText>
-      )}
+      {value && <Text style={[styles.value, { ...longText }]}>{value}</Text>}
     </View>
   );
 };

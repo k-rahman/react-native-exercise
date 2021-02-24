@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import AppText from "../components/AppText";
+import Text from "../components/Text";
 import DetailsSection from "../components/DetailsSection";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
@@ -39,9 +39,9 @@ const ItemDetailsScreen = ({ route }) => {
         )}
       />
       <View style={styles.textContainer}>
-        <AppText style={styles.title}>{item.title}</AppText>
+        <Text style={styles.title}>{item.title}</Text>
         <View style={styles.subTextContainer}>
-          <AppText style={styles.date}>
+          <Text style={styles.date}>
             {new Date(item.createdAt)
               .toLocaleString("fi-FI", {
                 dateStyle: "long",
@@ -49,8 +49,8 @@ const ItemDetailsScreen = ({ route }) => {
               })
               .replace(/202./g, "")
               .replace("klo", "")}
-          </AppText>
-          <AppText style={styles.price}>{item.price} €</AppText>
+          </Text>
+          <Text style={styles.price}>{item.price} €</Text>
         </View>
       </View>
       <DetailsSection label="Category" value={item.category.name} />
