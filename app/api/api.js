@@ -2,8 +2,8 @@ import { create } from "apisauce";
 import authStorage from "../auth/storage";
 
 const api = create({
-  // eURL: "https://kirppu-tori.herokuapp.com",
-  baseURL: "http://192.168.1.7:3200",
+  baseURL: "https://kirppu-tori.herokuapp.com",
+  // baseURL: "http://192.168.1.7:3200",
 });
 
 api.addAsyncRequestTransform(async request => {
