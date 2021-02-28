@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { FlatList, StyleSheet } from "react-native";
 
@@ -19,7 +19,11 @@ const itemsScreen = ({ navigation, route }) => {
 
   useFocusEffect(
     useCallback(() => {
-      loadItems(route.params);
+      try {
+        loadItems(route.params);
+      } catch (e) {
+        console.log(e);
+      }
 
       return () => {};
     }, [])
@@ -27,7 +31,7 @@ const itemsScreen = ({ navigation, route }) => {
 
   return (
     <Screen style={styles.container}>
-      {error ? (
+      {error || typeof items != "object" ? (
         <>
           <NotFound
             response={response}
