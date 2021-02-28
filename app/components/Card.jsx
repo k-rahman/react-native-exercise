@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   detailsContainer: {
+    flex: 1,
     justifyContent: "space-between",
     marginHorizontal: 12,
     marginVertical: 5,
