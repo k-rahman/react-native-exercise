@@ -53,6 +53,9 @@ const NewItemScreen = ({ navigation, route }) => {
 
     loadCategories();
     loadDeliveryTypes();
+
+    // navigation.navigate does not reset route params (github issue #6674)
+    // have to manually reset params ... nice!
   }, [route.params?.itemId]);
 
   const handleSubmit = (data, { resetForm }) => {
