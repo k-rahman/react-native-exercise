@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AuthContext from "../auth/context";
 import colors from "../config/colors";
 import NewItemScreen from "../screens/ItemAddEditScreen";
 
