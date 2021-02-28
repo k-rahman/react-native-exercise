@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "react-native-exercise",
-    "slug": "react-native-exercise",
+    "name": "Kirpputori",
+    "slug": "kirpputori",
+    "privacy": "unlisted",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/logo.png",
@@ -25,6 +26,8 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+    "description": "Mobile application for selling used items (or new)",
+    "githubUrl": "https://github.com/k-rahman/react-native-exercise"
   }
 }
