@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 13,
   },
-  detailsContainer: {},
   price: {
     fontSize: 14,
   },
