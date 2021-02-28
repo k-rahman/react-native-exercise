@@ -14,8 +14,6 @@ const ListItem = ({
   title,
   addStyles,
 }) => {
-  const textAlign = addStyles?.text;
-
   return (
     <Swipeable
       renderRightActions={renderRightActions}
@@ -26,8 +24,8 @@ const ListItem = ({
         <View style={[styles.container, { ...addStyles }]}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailsContainer}>
-            <Text style={[styles.title, { ...textAlign }]}>{title}</Text>
+          <View style={[styles.detailsContainer, addStyles?.detailsContainer]}>
+            <Text style={[styles.title, addStyles?.text]}>{title}</Text>
             {subTitle && <Text style={styles.subTitle}>{subTitle}</Text>}
           </View>
         </View>
@@ -46,7 +44,6 @@ const styles = StyleSheet.create({
     width: "100%",
     marginLeft: 10,
     justifyContent: "center",
-    alignItems: "center",
   },
   image: {
     width: 70,

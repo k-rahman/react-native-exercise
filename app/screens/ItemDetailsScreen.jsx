@@ -87,6 +87,9 @@ const ItemDetailsScreen = ({ route }) => {
               text: {
                 textAlign: "center",
               },
+              detailsContainer: {
+                alignItems: "center",
+              },
             }}
           />
         }
